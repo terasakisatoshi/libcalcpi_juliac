@@ -85,5 +85,3 @@ $ ./a.out
 ## Acknowledgment
 
 [This comment by @jbytecode in the Julia Discourse thread 'Where is Juliac developed?'](https://discourse.julialang.org/t/where-is-juliac-developed/113004/32) was very helpful.
-
-# libcalcpi_juliac
