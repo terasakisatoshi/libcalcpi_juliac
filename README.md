@@ -1,6 +1,8 @@
-# libcalcpi_juliac
+# [libcalcpi_juliac](https://github.com/terasakisatoshi/libcalcpi_juliac)
 
-This repository provides an example of how to use `juliac` that offers a more traditional, gcc-like command-line interface for compiling Julia programs. See JuliaHub's blog post [New Ways to Compile Julia
+## Description
+
+[This repository libcalcpi_juliac](https://github.com/terasakisatoshi/libcalcpi_juliac) provides an example of how to use `juliac` that offers a more traditional, gcc-like command-line interface for compiling Julia programs. See JuliaHub's blog post [New Ways to Compile Julia
 ](https://info.juliahub.com/blog/new-ways-to-compile-julia-blog) for more information about `juliac`.
 
 This repository tries to compile the following Julia function named `jlcalcpi` which returns the approximate number of `π = 3.1415926535897...`.
@@ -18,6 +20,12 @@ end
 Base.@ccallable function calcpi(N::Cint)::Cdouble
     jlcalcpi(N)
 end
+```
+
+## TL;DR
+
+```sh
+make setup && make && ./a.out
 ```
 
 ## Install Julia
