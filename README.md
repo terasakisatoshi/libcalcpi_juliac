@@ -28,7 +28,9 @@ end
 make setup && make && ./a.out
 ```
 
-## Install Julia
+## Usage
+
+### Install Julia
 
 Install Julia using [juliaup](https://github.com/JuliaLang/juliaup)
 
@@ -36,7 +38,7 @@ Install Julia using [juliaup](https://github.com/JuliaLang/juliaup)
 $ curl -fsSL https://install.julialang.org | sh -- --yes
 ```
 
-## Download `juliac`
+### Download `juliac`
 
 Run `make setup` to add nightly channel, download `juliac.jl` and `juliac-buildscript.jl`
 
@@ -54,7 +56,7 @@ Makefile              juliac-buildscript.jl libcalcpi.jl
 README.md             juliac.jl             main.c
 ```
 
-## Build shared library and executable
+### Build shared library and executable
 
 ```sh
 $ make
@@ -75,7 +77,7 @@ Base.@ccallable function calcpi(N::Cint)::Cdouble
 end
 ```
 
-## Run `./a.out`
+### Run `./a.out`
 
 ```sh
 $ ./a.out 10
