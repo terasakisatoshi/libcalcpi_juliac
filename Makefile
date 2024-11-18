@@ -52,11 +52,16 @@ $(OUTPUT_LIB): libcalcpi.jl setup
 # Compile the C program
 $(OUT): $(OUTPUT_LIB) $(MAIN_C)
 	@echo "Building entrypoint"
-	$(CC) -L./ -lcalcpi $(MAIN_C) -o $(OUT)
+	$(CC) $(MAIN_C) -L./ -lcalcpi -o $(OUT)
 
 # Run the executable
 run: $(OUT)
+ifeq ($(OS_TYPE),Linux)
+	LD_LIBRARY_PATH=. ./$(OUT)
+else ifeq ($(OS_TYPE),Darwin)
 	./$(OUT)
+endif
+
 
 # Clean up generated files
 clean:
