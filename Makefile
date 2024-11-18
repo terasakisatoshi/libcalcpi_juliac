@@ -59,7 +59,10 @@ run: $(OUT)
 
 # Clean up generated files
 clean:
-	rm -f $(OUT) $(OUTPUT_LIB)
+	$(RM) $(OUT) $(OUTPUT_LIB)
 
+distcleanall:
+	$(MAKE) clean
+	$(RM) juliac.jl juliac-buildscript.jl
 # Phony targets
 .PHONY: all run clean setup
