@@ -28,13 +28,15 @@ all: $(OUT)
 setup:
 	juliaup add nightly
 	julia +nightly --version
-ifeq ($(wildcard ./juliac.jl/.),)
+ifeq ($(wildcard ./juliac.jl),)
+	@echo "Downloading juliac.jl..."
 	wget https://raw.githubusercontent.com/JuliaLang/julia/refs/heads/master/contrib/juliac.jl
 else
 	@echo "juliac.jl already exists"
 endif
 
-ifeq ($(wildcard ./juliac-buildscript.jl/.),)
+ifeq ($(wildcard ./juliac-buildscript.jl),)
+	@echo "Downloading juliac-buildscript.jl..."
 	wget https://raw.githubusercontent.com/JuliaLang/julia/refs/heads/master/contrib/juliac-buildscript.jl
 else
 	@echo "juliac-buildscript.jl already exists"
