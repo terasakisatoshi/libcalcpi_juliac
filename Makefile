@@ -43,7 +43,7 @@ else
 endif
 
 # Build the shared library
-$(OUTPUT_LIB): libcalcpi.jl
+$(OUTPUT_LIB): libcalcpi.jl setup
 	@echo "Building... shared library"
 	$(JULIA) $(JULIA_SCRIPT) --output-lib $(OUTPUT_LIB) --compile-ccallable --trim libcalcpi.jl
 	@echo "Done"
