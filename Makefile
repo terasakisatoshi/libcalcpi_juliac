@@ -27,6 +27,7 @@ all: $(OUT)
 
 setup:
 	juliaup add nightly
+	juliaup update nightly
 	julia +nightly --version
 ifeq ($(wildcard ./juliac.jl),)
 	@echo "Downloading juliac.jl..."
