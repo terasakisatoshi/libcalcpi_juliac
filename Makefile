@@ -27,21 +27,24 @@ all: $(OUT)
 
 setup:
 	juliaup add nightly
+	juliaup update nightly
 	julia +nightly --version
-ifeq ($(wildcard ./juliac.jl/.),)
+ifeq ($(wildcard ./juliac.jl),)
+	@echo "Downloading juliac.jl..."
 	wget https://raw.githubusercontent.com/JuliaLang/julia/refs/heads/master/contrib/juliac.jl
 else
 	@echo "juliac.jl already exists"
 endif
 
-ifeq ($(wildcard ./juliac-buildscript.jl/.),)
+ifeq ($(wildcard ./juliac-buildscript.jl),)
+	@echo "Downloading juliac-buildscript.jl..."
 	wget https://raw.githubusercontent.com/JuliaLang/julia/refs/heads/master/contrib/juliac-buildscript.jl
 else
 	@echo "juliac-buildscript.jl already exists"
 endif
 
 # Build the shared library
-$(OUTPUT_LIB): libcalcpi.jl
+$(OUTPUT_LIB): libcalcpi.jl setup
 	@echo "Building... shared library"
 	$(JULIA) $(JULIA_SCRIPT) --output-lib $(OUTPUT_LIB) --compile-ccallable --trim libcalcpi.jl
 	@echo "Done"
@@ -57,7 +60,10 @@ run: $(OUT)
 
 # Clean up generated files
 clean:
-	rm -f $(OUT) $(OUTPUT_LIB)
+	$(RM) $(OUT) $(OUTPUT_LIB)
 
+distcleanall:
+	$(MAKE) clean
+	$(RM) juliac.jl juliac-buildscript.jl
 # Phony targets
 .PHONY: all run clean setup
