@@ -25,7 +25,7 @@ end
 ## TL;DR
 
 ```sh
-make setup && make && ./a.out
+make && ./a.out
 ```
 
 ## Usage
