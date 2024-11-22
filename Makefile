@@ -46,7 +46,7 @@ endif
 # Build the shared library
 $(OUTPUT_LIB): libcalcpi.jl setup
 	@echo "Building... shared library"
-	$(JULIA) $(JULIA_SCRIPT) --output-lib $(OUTPUT_LIB) --compile-ccallable --trim libcalcpi.jl
+	$(JULIA) --experimental --trim $(JULIA_SCRIPT) --output-lib $(OUTPUT_LIB) --compile-ccallable libcalcpi.jl
 	@echo "Done"
 
 # Compile the C program
