@@ -38,22 +38,24 @@ Install Julia using [juliaup](https://github.com/JuliaLang/juliaup)
 $ curl -fsSL https://install.julialang.org | sh -- --yes
 ```
 
-### Download `juliac`
+### Download files related to `juliac`
 
-Run `make setup` to add nightly channel, download `juliac.jl` and `juliac-buildscript.jl`
+Run `make setup` to add nightly channel, download `juliac.jl`, `juliac-buildscript.jl`, and `julia-config.jl`.
 
 ```sh
 $ ls
-Makefile     README.md    libcalcpi.jl main.c
+LICENSE      README.md    libcalcpi.jl
+Makefile     docker       main.c
 $ make setup
 ```
 
-Then we have:
+Then we will get:
 
 ```sh
 $ ls
-Makefile              juliac-buildscript.jl libcalcpi.jl
-README.md             juliac.jl             main.c
+LICENSE               docker                juliac.jl
+Makefile              julia-config.jl       libcalcpi.jl
+README.md             juliac-buildscript.jl main.c
 ```
 
 ### Build shared library and executable

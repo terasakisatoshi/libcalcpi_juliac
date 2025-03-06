@@ -1,4 +1,5 @@
 libcalcpi.*
 a.out
 juliac.jl
+julia-config.jl
 juliac-buildscript.jl

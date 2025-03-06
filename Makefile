@@ -43,6 +43,13 @@ else
 	@echo "juliac-buildscript.jl already exists"
 endif
 
+ifeq ($(wildcard ./julia-config.jl),)
+	@echo "Downloading julia-config.jl..."
+	wget https://raw.githubusercontent.com/JuliaLang/julia/refs/heads/master/contrib/julia-config.jl
+else
+	@echo "julia-config.jl already exists"
+endif
+
 # Build the shared library
 $(OUTPUT_LIB): libcalcpi.jl setup
 	@echo "Building... shared library"
@@ -69,6 +76,6 @@ clean:
 
 distcleanall:
 	$(MAKE) clean
-	$(RM) juliac.jl juliac-buildscript.jl
+	$(RM) juliac.jl juliac-buildscript.jl julia-config.jl
 # Phony targets
 .PHONY: all run clean setup
